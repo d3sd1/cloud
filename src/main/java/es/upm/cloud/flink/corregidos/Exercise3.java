@@ -22,6 +22,7 @@ public class Exercise3 {
     public static void main (String[] args) throws Exception {
         final ParameterTool params = ParameterTool.fromArgs(args);
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(1);
         DataStreamSource<String> text;
         text = env.readTextFile("./files/sensorData.csv");
 
@@ -34,7 +35,7 @@ public class Exercise3 {
                                 fieldArray[1], Double.parseDouble(fieldArray[2]));
                         collector.collect(out1);
                         Tuple3<Long,String,Double> out2 = new Tuple3(Long.parseLong(fieldArray[0]),
-                                fieldArray[1]+"-F", (Double.parseDouble(fieldArray[2]) * 9 / 5) + 32);
+                                fieldArray[1]+"-F", (Double.parseDouble(fieldArray[2])) + 100);
                         collector.collect(out2);
                     }
                 });

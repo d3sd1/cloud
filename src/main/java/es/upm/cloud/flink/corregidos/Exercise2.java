@@ -19,6 +19,7 @@ public class Exercise2 {
     public static void main(String[] args) throws Exception {
         final ParameterTool params = ParameterTool.fromArgs(args);
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(1);
         DataStreamSource<String> text;
         text = env.readTextFile("./files/sensorData.csv");
 
