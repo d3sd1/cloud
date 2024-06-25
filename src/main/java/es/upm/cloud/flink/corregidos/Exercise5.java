@@ -46,9 +46,9 @@ public class Exercise5 {
         SingleOutputStreamOperator<Tuple3<Long, String, Double>> outputMax = keyedStream.max(2);
         SingleOutputStreamOperator<Tuple3<Long, String, Double>> outputSum = keyedStream.sum(2);
 
-        outputMin.writeAsCsv("./files/ex4min.csv", FileSystem.WriteMode.OVERWRITE);
-        outputMax.writeAsCsv("./files/ex4max.csv", FileSystem.WriteMode.OVERWRITE);
-        outputSum.writeAsCsv("./files/ex4sum.csv", FileSystem.WriteMode.OVERWRITE);
+        outputMin.writeAsCsv("./files/ex5min.csv", FileSystem.WriteMode.OVERWRITE);
+        outputMax.writeAsCsv("./files/ex5max.csv", FileSystem.WriteMode.OVERWRITE);
+        outputSum.writeAsCsv("./files/ex5sum.csv", FileSystem.WriteMode.OVERWRITE);
 
         env.execute("Exercise4");
     }
